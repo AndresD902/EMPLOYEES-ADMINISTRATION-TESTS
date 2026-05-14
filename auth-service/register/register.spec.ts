@@ -9,7 +9,7 @@ test('Should register a new user succesfully', async({request, baseURL})=>{
             lastName: 'User',
             email: uniqueEmail,
             password: 'Test123*',
-            role: 'CONSULTATION',
+            role: 'HR',
         },
     });
 

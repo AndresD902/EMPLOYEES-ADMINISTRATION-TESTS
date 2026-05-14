@@ -4,18 +4,40 @@
   "description": "Automated API tests for the Employees Administration System",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "test:auth": "playwright test auth-service",
-    "report": "playwright show-report"
+    "setup": "ts-node setup.ts",
+    "setup:complete": "ts-node setup-complete.ts",
+    "setup:test-users": "ts-node setup-test-users.ts",
+    "fix:db": "ts-node fix-db-schema.ts",
+    "check:emails": "ts-node check-emails.ts",
+    "inspect:db": "ts-node inspect-db.ts",
+    "test:auth": "cd auth-service && npm test",
+    "test:auth:watch": "cd auth-service && npm run test:watch",
+    "report:auth": "cd auth-service && npm run report",
+    "perf:smoke": "cd auth-service-performance && npm run perf:smoke",
+    "perf:burst": "cd auth-service-performance && npm run perf:burst",
+    "perf:load": "cd auth-service-performance && npm run perf:load",
+    "perf:mixed": "cd auth-service-performance && npm run perf:mixed",
+    "perf:all": "cd auth-service-performance && npm run perf:all",
+    "perf:setup": "ts-node setup-test-users.ts",
+    "diagnose": "ts-node diagnose-login.ts",
+    "test:all": "npm run test:auth && npm run perf:all"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^16.3.1",
+    "node-fetch": "^2.7.0",
+    "pg": "^8.11.3"
+  },
   "devDependencies": {
     "@playwright/test": "^1.59.1",
+    "@types/bcrypt": "^6.0.0",
     "@types/node": "^25.6.0",
+    "@types/node-fetch": "^2.6.13",
+    "@types/pg": "^8.11.1",
     "ts-node": "^10.9.2",
     "typescript": "^6.0.3"
   }
 }
-

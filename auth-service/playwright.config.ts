@@ -2,7 +2,7 @@ import { defineConfig } from "@playwright/test";
 import { existsSync, readFileSync } from "fs";
 import path from "path";
 
-const envPath = path.resolve(__dirname, ".env");
+const envPath = path.resolve(__dirname, "..", ".env");
 
 if (existsSync(envPath)) {
     const envFile = readFileSync(envPath, "utf8");
@@ -29,10 +29,10 @@ if (existsSync(envPath)) {
 
 export default defineConfig({
     testDir: '.',
-    timeout: 60000, // Aumentado a 60s para pruebas de performance
+    timeout: 30000,
     fullyParallel: true,
-    retries: 0, // Sin reintentos para performance tests
-    workers: 1, // Una sola sesión de trabajo para performance
+    retries: 0,
+    workers: 4,
     reporter: [
         ['html', { open: 'never' }],
         ['list'],
@@ -43,8 +43,6 @@ export default defineConfig({
             Accept: 'application/json',
             'content-Type': 'application/json'
         },
-        // Performance-específico
-        httpErrorCodes: [404, 429, 500, 502, 503],
     },
-    webServer: undefined, // No inicia servidor, asume que está corriendo
+    webServer: undefined,
 });

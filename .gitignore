@@ -1,8 +1,54 @@
+# Dependencies
 node_modules/
+package-lock.json
+yarn.lock
 
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Testing & Coverage
 playwright-report/
 test-results/
+coverage/
+*.coverage
 
-.env
+# Build & Output
+dist/
+build/
+*.tsbuildinfo
+
+# Development scripts (utilities, not part of source)
+check-emails.ts
+diagnose-login.ts
+fix-db-schema.ts
+inspect-db.ts
+setup-test-users.ts
+
+# Temporary development directories
+auth-service-performance/
+auth-service-mock/
+
+# Logs
 *.log
+logs/
+
+# Temporary files
 *.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# IDE & Editor
+.vscode/
+.idea/
+*.iml
+*.sublime-workspace
+.code-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+.env.local.swp

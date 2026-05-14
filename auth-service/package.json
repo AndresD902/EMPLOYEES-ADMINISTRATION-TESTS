@@ -1,0 +1,13 @@
+{
+  "name": "@tests/auth-service-tests",
+  "version": "1.0.0",
+  "description": "Automated integration tests for Auth Service",
+  "scripts": {
+    "test": "playwright test --grep -v @performance",
+    "test:watch": "playwright test --watch --grep -v @performance",
+    "report": "playwright show-report"
+  },
+  "keywords": ["auth", "integration", "tests"],
+  "author": "",
+  "license": "ISC"
+}

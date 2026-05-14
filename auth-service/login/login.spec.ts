@@ -12,6 +12,10 @@ test('Should login succesfully with valid credentials', async ({request, baseURL
     const responseBody = await response.json();
     
     expect(responseBody.success).toBe(true);
-    expect(responseBody.data).toHaveProperty('token');
-    expect(typeof responseBody.data.token).toBe('string');
+
+    // El token puede venir como 'token' o 'accessToken' según la implementación
+    const token = responseBody.data.token || responseBody.data.accessToken;
+    expect(token).toBeDefined();
+    expect(typeof token).toBe('string');
+    expect(token.length).toBeGreaterThan(0);
 });

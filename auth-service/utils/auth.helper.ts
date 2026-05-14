@@ -21,9 +21,20 @@ export async function loginAndGetToken(
         },
     });
 
+    // Log para debugging
+    console.log(`[loginAndGetToken] Email: ${email}, Status: ${response.status()}`);
+
     expect(response.ok()).toBeTruthy();
 
     const responseBody = await response.json();
-    return responseBody.data.token;
+
+    // Soportar ambos nombres de propiedad (accessToken y token)
+    const token = responseBody.data.accessToken || responseBody.data.token;
+
+    if (!token) {
+        throw new Error(`No se encontró token en la respuesta. Respuesta: ${JSON.stringify(responseBody)}`);
+    }
+
+    return token;
 }
 
