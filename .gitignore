@@ -13,3 +13,10 @@ playwright-report/
 test-results/
 .env
 node_modules/
+
+# Generated output
+node_modules/
+.env
+playwright-report/
+test-results/
+performance/reports/
