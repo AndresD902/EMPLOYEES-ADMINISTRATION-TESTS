@@ -4,8 +4,19 @@
   "description": "Automated API tests for the Employees Administration System",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "playwright test",
     "test:auth": "playwright test auth-service",
+    "test:contract": "playwright test contract-service",
+    "test:employee": "playwright test employee-service",
+    "test:vacation": "playwright test vacation-service",
+    "test:report": "playwright test report-service",
+    "test:history": "playwright test history-service",
+    "test:super-admin": "playwright test super-admin-service",
+    "test:services": "playwright test auth-service contract-service employee-service vacation-service report-service history-service super-admin-service",
+    "test:e2e:roles": "playwright test e2e",
+    "perf:load": "ts-node performance/run.ts load",
+    "perf:stress": "ts-node performance/run.ts stress",
+    "perf": "npm run perf:load && npm run perf:stress",
     "report": "playwright show-report"
   },
   "keywords": [],
@@ -18,4 +29,3 @@
     "typescript": "^6.0.3"
   }
 }
-

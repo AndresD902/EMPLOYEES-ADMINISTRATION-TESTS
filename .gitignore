@@ -6,3 +6,10 @@ test-results/
 .env
 *.log
 *.tmp
+
+# Generated test output
+performance/reports/
+playwright-report/
+test-results/
+.env
+node_modules/

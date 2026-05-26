@@ -24,6 +24,7 @@ export async function loginAndGetToken(
     expect(response.ok()).toBeTruthy();
 
     const responseBody = await response.json();
-    return responseBody.data.token;
+    expect(responseBody.data).toHaveProperty("accessToken");
+    return responseBody.data.accessToken;
 }
 
